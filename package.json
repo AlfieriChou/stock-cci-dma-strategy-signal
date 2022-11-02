@@ -17,6 +17,7 @@
     "@galenjs/framework-next": "1.4.12",
     "@galenjs/schedule": "^1.4.6",
     "@galenjs/swagger": "^1.4.0",
+    "date-fns": "^2.29.3",
     "dotenv": "^16.0.3",
     "expire-store": "^1.0.2",
     "got": "^11",
