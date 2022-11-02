@@ -1,0 +1,71 @@
+properties:
+  id:
+    type: integer
+    autoIncrement: true
+    primaryKey: true
+  createdAt:
+    type: date
+    allowNull: false
+  updatedAt:
+    type: date
+    allowNull: false
+  deletedAt:
+    type: date
+  name:
+    type: string
+    length: 64
+    description: '名称'
+  code:
+    type: string
+    length: 32
+    description: '编码'
+  latestBuyPrice:
+    type: float
+    default: 0
+    description: '上一次买入净值'
+  latestSellPrice:
+    type: float
+    default: 0
+    description: '上一次买入净值'
+  currentWorth:
+    type: float
+    description: '当前净值'
+  cciFirstElementDays:
+    type: integer
+    default: 20
+    description: 'cci第一因子数据计算天数'
+  cciSecondElement:
+    type: float
+    default: 0.015
+    description: 'cci第二因子'
+  dmaFirstElementDays:
+    type: integer
+    default: 11
+    description: 'dma第一个因子数据计算天数'
+  dmaSecondElementDays:
+    type: integer
+    default: 22
+    description: 'dma第二个因子数据计算天数'
+  dmaFirstElementValue:
+    type: float
+    description: 'dma第一个因子数据计算值'
+  dmaSecondElementValue:
+    type: float
+    description: 'dma第二个因子数据计算值'
+  cci:
+    type: float
+    description: 'cci计算值'
+  dmaDiff:
+    type: float
+    description: 'dma差值'
+  isHolding:
+    type: boolean
+    default: false
+    description: 'cci-dma策略是否持有'
+relations:
+  cciDmaStockLogs:
+    type: 'hasMany'
+    model: 'CciDmaStockLog'
+  cciDmaStockTradeLogs:
+    type: 'hasMany'
+    model: 'CciDmaStockTradeLog'
