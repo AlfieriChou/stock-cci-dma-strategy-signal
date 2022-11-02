@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@commitlint/cli': ^17.1.2
   '@commitlint/config-conventional': ^17.1.0
-  '@galenjs/bullmq': ^1.4.14
+  '@galenjs/bullmq': ^1.4.15
   '@galenjs/factories': ^1.4.0
   '@galenjs/framework-next': 1.4.12
   '@galenjs/schedule': ^1.4.6
@@ -27,7 +27,7 @@ specifiers:
   standard-version: ^9.5.0
 
 dependencies:
-  '@galenjs/bullmq': 1.4.14
+  '@galenjs/bullmq': 1.4.15
   '@galenjs/factories': 1.4.0
   '@galenjs/framework-next': 1.4.12_sraicxu7jh6nqvugrm36gp3neu
   '@galenjs/schedule': 1.4.6
@@ -280,8 +280,8 @@ packages:
     resolution: {integrity: sha512-zQ6SP0p/G7I34ISP75CyyyanyxUj0ScvfeUyCrWiiinjO7XelJ6lShFvIgv4iDbkNgIM6ZfH8dlnQycpnS4eBQ==}
     dev: false
 
-  /@galenjs/bullmq/1.4.14:
-    resolution: {integrity: sha512-K65sY8caOVQWVtd5dNHau69WdFJo1dXUWjqiFkksnpg9mem+ldSasoLUWb/m/5m1UergJjRbxUFXqn7M6MgZBw==}
+  /@galenjs/bullmq/1.4.15:
+    resolution: {integrity: sha512-Z/TytZS6EmifeZNfxPQKA/IuRpywaBbIa6/mIe40tgje+OsFvGD/zUzSy8OOvjKmk5tNJrWBqgjmJ7OV1oBCng==}
     dependencies:
       '@galenjs/class-loader': 1.4.0
       '@galenjs/factories': 1.4.0_jsonschema@1.4.1

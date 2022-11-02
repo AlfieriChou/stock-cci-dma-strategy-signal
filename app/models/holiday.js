@@ -42,12 +42,12 @@ module.exports = Model => {
       return prevTradeDate.getTime()
     }
 
-    static async isHoliday (date, ctx) {
+    static async isHoliday (date) {
       const timestamp = date || Date.now()
       if ([6, 0].includes(new Date(timestamp).getDay())) {
         return true
       }
-      const holiday = await ctx.models.Holiday.findOne({
+      const holiday = await this.findOne({
         where: { date: startOfDay(timestamp) },
         raw: true
       })

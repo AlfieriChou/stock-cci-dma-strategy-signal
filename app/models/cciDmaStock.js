@@ -9,7 +9,7 @@ module.exports = Model => {
       const instances = await this.findAll({
         where: {
           code: body.code,
-          cciFirstElementDays: body.cciFirstElementDays || 20,
+          cciFirstElementDays: body.cciFirstElementDays || 14,
           cciSecondElement: body.cciSecondElement || 0.015,
           dmaFirstElementDays: body.dmaFirstElementDays || 11,
           dmaSecondElementDays: body.dmaSecondElementDays || 22
