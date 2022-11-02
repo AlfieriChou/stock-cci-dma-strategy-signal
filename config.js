@@ -72,8 +72,7 @@ module.exports = {
       host: REDIS_HOST,
       port: 6379,
       password: '',
-      db: 3,
-      keyPrefix: 'STOCK'
+      db: 3
     },
     consumerPath: path.join(__dirname, 'app/queue'),
     sub: {

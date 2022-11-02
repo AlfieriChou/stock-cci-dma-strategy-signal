@@ -12,7 +12,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@galenjs/bullmq": "^1.4.13",
+    "@galenjs/bullmq": "^1.4.14",
     "@galenjs/factories": "^1.4.0",
     "@galenjs/framework-next": "1.4.12",
     "@galenjs/schedule": "^1.4.6",
