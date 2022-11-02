@@ -1,20 +1,19 @@
 module.exports = class Trade {
   async onMsg (msg, ctx) {
-    const msgData = JSON.parse(msg.content.toString())
     const duplicateCount = await ctx.redis.incr(
       'main',
-      `consumerMessageId:${msgData.id}`,
+      `consumerMessageId:${msg.id}`,
       5 * 60
     )
     if (duplicateCount > 1) {
-      ctx.logger.info('[amqp] duplicate message ', msgData.id)
+      ctx.logger.info('[amqp] duplicate message ', msg.id)
       return
     }
-    const { id } = msgData.body
+    const { id } = msg.body
     try {
       await this.doTrade(id, ctx)
     } catch (err) {
-      ctx.logger.warn('[amqp] cci stock multi element strategy error: ', msgData.id, id, err)
+      ctx.logger.warn('[amqp] cci stock multi element strategy error: ', msg.id, id, err)
     }
   }
 

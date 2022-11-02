@@ -11,8 +11,8 @@ module.exports = Model => {
           code: body.code,
           cciFirstElementDays: body.cciFirstElementDays || 20,
           cciSecondElement: body.cciSecondElement || 0.015,
-          dmaFirstElement: body.dmaFirstElement || 11,
-          dmaSecondElement: body.dmaSecondElement || 22
+          dmaFirstElementDays: body.dmaFirstElementDays || 11,
+          dmaSecondElementDays: body.dmaSecondElementDays || 22
         },
         raw: true
       })

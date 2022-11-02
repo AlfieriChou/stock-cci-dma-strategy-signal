@@ -16,7 +16,7 @@ exports.task = async ctx => {
   if (instances.length) {
     await instances.reduce(async (promise, stock) => {
       await promise
-      await ctx.sendAmqpMsg('cci', 'STOCK', {
+      await ctx.sendMsg('cci', 'STOCK', {
         id: stock.id
       })
     }, Promise.resolve())
