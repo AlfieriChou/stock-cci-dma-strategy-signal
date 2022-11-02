@@ -45,7 +45,7 @@ module.exports = class Trade {
     const [{
       close, open, high, low
     }] = await ctx.service.stock.loadDataFromPrevNDays(stock.code, 1, ctx)
-    await ctx.models.CciDmaStock.writeDailyReport(id, [{
+    await ctx.models.CciDmaStock.writeDailyReport(id, {
       close,
       open,
       high,
@@ -53,6 +53,6 @@ module.exports = class Trade {
       dmaFirstElementValue: firstElementValue,
       dmaSecondElementValue: secondElementValue,
       dmaDiff: firstElementValue - secondElementValue
-    }], ctx)
+    }, ctx)
   }
 }

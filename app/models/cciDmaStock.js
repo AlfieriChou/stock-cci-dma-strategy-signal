@@ -1,4 +1,3 @@
-const _ = require('lodash')
 const { startOfToday } = require('date-fns')
 
 module.exports = Model => {
@@ -97,20 +96,17 @@ module.exports = Model => {
       }
     }
 
-    static async writeDailyReport (id, list, ctx) {
+    static async writeDailyReport (id, data, ctx) {
       if (!(await ctx.models.Holiday.isHoliday(ctx))) {
-        const { modelDef } = ctx.models.CciDmaStockLog
-        const definedFields = _.remove(Object.keys(modelDef.properties || {}), field => {
-          return !['id', 'createdAt', 'updatedAt', 'deletedAt'].includes(field)
-        })
         const date = startOfToday().getTime()
-        await ctx.models.CciDmaStockLog.bulkCreate(list.map(item => ({
-          ...item,
+        const keys = Object.keys(data)
+        await ctx.models.CciDmaStockLog.bulkCreate([{
+          ...data,
           id: `${id}${date}`,
           date,
           cciDmaStockId: id
-        })), {
-          updateOnDuplicate: definedFields
+        }], {
+          updateOnDuplicate: keys
         })
       }
     }

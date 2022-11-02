@@ -45,8 +45,8 @@ module.exports = class Trade {
     }, {
       where: { id }
     })
-    await ctx.models.CciDmaStock.writeDailyReport(id, [{
+    await ctx.models.CciDmaStock.writeDailyReport(id, {
       close, open, high, low, cci
-    }], ctx)
+    }, ctx)
   }
 }
