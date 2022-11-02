@@ -20,7 +20,6 @@
     "dotenv": "^16.0.3",
     "expire-store": "^1.0.2",
     "got": "^11",
-    "html-table-to-json": "^1.0.0",
     "koa-body": "^5.0.0",
     "koa-bodyparser": "^4.3.0",
     "koa-compose": "^4.1.0",
