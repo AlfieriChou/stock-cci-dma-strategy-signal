@@ -39,7 +39,7 @@ module.exports = class Trade {
           dmaSecondElementValue
         }
       },
-      isEnterPosition,
+      isEnterPosition: isEnterPosition ** !isHolding,
       isExitPosition: !isEnterPosition && isHolding
     }, ctx)
   }
