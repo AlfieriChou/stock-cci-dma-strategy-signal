@@ -78,6 +78,7 @@ module.exports = {
     sub: {
       cci: {
         queueName: 'STOCK',
+        group: 'STOCK_cci',
         lockDuration: 300000,
         concurrency: 5,
         removeOnComplete: true,
@@ -86,6 +87,16 @@ module.exports = {
       },
       dma: {
         queueName: 'STOCK',
+        group: 'STOCK_dma',
+        lockDuration: 300000,
+        concurrency: 5,
+        removeOnComplete: true,
+        removeOnFail: true,
+        timeout: 300000
+      },
+      backTest: {
+        queueName: 'STOCK',
+        group: 'STOCK_backTest',
         lockDuration: 300000,
         concurrency: 5,
         removeOnComplete: true,
