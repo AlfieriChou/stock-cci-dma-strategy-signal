@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    steps:
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.DEPLOY_HOST }}
+        username: ${{ secrets.DEPLOY_USER }}
+        password: ${{ secrets.DEPLOY_PASSWORD }}
+        script: |
+          cd ~/github/stock-cci-dma-strategy-signal
+          git checkout .
+          git pull origin master
+          make startApp
