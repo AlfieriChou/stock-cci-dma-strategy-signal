@@ -12,7 +12,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@galenjs/bullmq": "^1.4.15",
+    "@galenjs/bullmq": "^1.4.16",
     "@galenjs/factories": "^1.4.0",
     "@galenjs/framework-next": "1.4.12",
     "@galenjs/schedule": "^1.4.6",
@@ -24,6 +24,7 @@
     "koa-body": "^5.0.0",
     "koa-bodyparser": "^4.3.0",
     "koa-compose": "^4.1.0",
+    "lodash": "^4.17.21",
     "mysql2": "^2.3.3"
   },
   "devDependencies": {

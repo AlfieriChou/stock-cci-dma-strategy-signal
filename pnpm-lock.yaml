@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@commitlint/cli': ^17.1.2
   '@commitlint/config-conventional': ^17.1.0
-  '@galenjs/bullmq': ^1.4.15
+  '@galenjs/bullmq': ^1.4.16
   '@galenjs/factories': ^1.4.0
   '@galenjs/framework-next': 1.4.12
   '@galenjs/schedule': ^1.4.6
@@ -23,13 +23,14 @@ specifiers:
   koa-bodyparser: ^4.3.0
   koa-compose: ^4.1.0
   lint-staged: ^13.0.3
+  lodash: ^4.17.21
   mysql2: ^2.3.3
   nodemon: ^2.0.15
   standard-version: ^9.5.0
 
 dependencies:
-  '@galenjs/bullmq': 1.4.15
-  '@galenjs/factories': 1.4.0
+  '@galenjs/bullmq': 1.4.16_lodash@4.17.21
+  '@galenjs/factories': 1.4.0_lodash@4.17.21
   '@galenjs/framework-next': 1.4.12_sraicxu7jh6nqvugrm36gp3neu
   '@galenjs/schedule': 1.4.6
   '@galenjs/swagger': 1.4.0
@@ -40,6 +41,7 @@ dependencies:
   koa-body: 5.0.0
   koa-bodyparser: 4.3.0
   koa-compose: 4.1.0
+  lodash: 4.17.21
   mysql2: 2.3.3
 
 devDependencies:
@@ -98,7 +100,7 @@ packages:
       lodash: 4.17.21
       resolve-from: 5.0.0
       resolve-global: 1.0.0
-      yargs: 17.6.0
+      yargs: 17.6.2
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
@@ -282,12 +284,12 @@ packages:
     resolution: {integrity: sha512-zQ6SP0p/G7I34ISP75CyyyanyxUj0ScvfeUyCrWiiinjO7XelJ6lShFvIgv4iDbkNgIM6ZfH8dlnQycpnS4eBQ==}
     dev: false
 
-  /@galenjs/bullmq/1.4.15:
-    resolution: {integrity: sha512-Z/TytZS6EmifeZNfxPQKA/IuRpywaBbIa6/mIe40tgje+OsFvGD/zUzSy8OOvjKmk5tNJrWBqgjmJ7OV1oBCng==}
+  /@galenjs/bullmq/1.4.16_lodash@4.17.21:
+    resolution: {integrity: sha512-czCia838JcBMAOmG3qy9+aZYAO6/hYrEw2SFeEn9aS/0YLE2nfm1Elk+M9ZDfRiZJzaSYplMUIWW6cxvyYUbOg==}
     dependencies:
       '@galenjs/class-loader': 1.4.0
-      '@galenjs/factories': 1.4.0_jsonschema@1.4.1
-      bullmq: 3.0.0
+      '@galenjs/factories': 1.4.0_ddlcm5c7occg37f33bzdo3xgze
+      bullmq: 3.1.3
       jsonschema: 1.4.1
       shortid: 2.2.16
     transitivePeerDependencies:
@@ -302,13 +304,6 @@ packages:
       read-dir-filenames: 1.0.6
     dev: false
 
-  /@galenjs/factories/1.4.0:
-    resolution: {integrity: sha512-ylrx/X8iJcDXEC708o+kdOtpOrdJ9IEGO4acTaPfj1z+B+shD/l3nI27HRMjIj7AEHfSvjeH/rahQPpd1QtI/w==}
-    peerDependencies:
-      jsonschema: ^1.4.0
-      lodash: ^4.17.20
-    dev: false
-
   /@galenjs/factories/1.4.0_ddlcm5c7occg37f33bzdo3xgze:
     resolution: {integrity: sha512-ylrx/X8iJcDXEC708o+kdOtpOrdJ9IEGO4acTaPfj1z+B+shD/l3nI27HRMjIj7AEHfSvjeH/rahQPpd1QtI/w==}
     peerDependencies:
@@ -319,13 +314,13 @@ packages:
       lodash: 4.17.21
     dev: false
 
-  /@galenjs/factories/1.4.0_jsonschema@1.4.1:
+  /@galenjs/factories/1.4.0_lodash@4.17.21:
     resolution: {integrity: sha512-ylrx/X8iJcDXEC708o+kdOtpOrdJ9IEGO4acTaPfj1z+B+shD/l3nI27HRMjIj7AEHfSvjeH/rahQPpd1QtI/w==}
     peerDependencies:
       jsonschema: ^1.4.0
       lodash: ^4.17.20
     dependencies:
-      jsonschema: 1.4.1
+      lodash: 4.17.21
     dev: false
 
   /@galenjs/framework-next/1.4.12_sraicxu7jh6nqvugrm36gp3neu:
@@ -336,7 +331,7 @@ packages:
     dependencies:
       '@galenjs/als': 1.0.0
       '@galenjs/class-loader': 1.4.0
-      '@galenjs/factories': 1.4.0
+      '@galenjs/factories': 1.4.0_lodash@4.17.21
       '@galenjs/logger': 1.4.12
       '@galenjs/models': 1.4.1_mysql2@2.3.3
       '@galenjs/models-rest': 1.4.0
@@ -852,8 +847,8 @@ packages:
       is-string: 1.0.7
     dev: true
 
-  /array.prototype.flat/1.3.0:
-    resolution: {integrity: sha512-12IUEkHsAhA4DY5s0FPgNXIdc8VRSqD9Zp78a5au9abH/SOBrsp082JOWFNTjkMozh8mqcdiKuaLGhPeYztxSw==}
+  /array.prototype.flat/1.3.1:
+    resolution: {integrity: sha512-roTU0KWIOmJ4DRLmwKd19Otg0/mT3qPNt0Qb3GWW8iObuZXxrjB/pzn0R3hqpRSWg4HCwqx+0vwOnWnvlOyeIA==}
     engines: {node: '>= 0.4'}
     dependencies:
       call-bind: 1.0.2
@@ -918,12 +913,12 @@ packages:
       semver: 7.3.8
     dev: true
 
-  /bullmq/3.0.0:
-    resolution: {integrity: sha512-amw+YZhEo1B47iMpaLbtKwlzZjQi5NYjLCYl8n9qkQpkDDVAVJ9d++zdOgyXX6kG7i/pMP9tr2vyj3J6IcjbTA==}
+  /bullmq/3.1.3:
+    resolution: {integrity: sha512-4RChKaL183MJfjP+lgc9mevsgqqV0XlSGcSG370H9ksrD4aB7RG56fOrGE/j2kkxVrg0Wp/NCG7tFOqalZlVxg==}
     dependencies:
       cron-parser: 4.6.0
       glob: 8.0.3
-      ioredis: 5.2.3
+      ioredis: 5.2.4
       lodash: 4.17.21
       msgpackr: 1.7.2
       semver: 7.3.8
@@ -1802,7 +1797,7 @@ packages:
         optional: true
     dependencies:
       array-includes: 3.1.5
-      array.prototype.flat: 1.3.0
+      array.prototype.flat: 1.3.1
       debug: 2.6.9
       doctrine: 2.1.0
       eslint: 8.26.0
@@ -2531,8 +2526,8 @@ packages:
       - supports-color
     dev: false
 
-  /ioredis/5.2.3:
-    resolution: {integrity: sha512-gQNcMF23/NpvjCaa1b5YycUyQJ9rBNH2xP94LWinNpodMWVUPP5Ai/xXANn/SM7gfIvI62B5CCvZxhg5pOgyMw==}
+  /ioredis/5.2.4:
+    resolution: {integrity: sha512-qIpuAEt32lZJQ0XyrloCRdlEdUUNGG9i0UOk6zgzK6igyudNWqEBxfH6OlbnOOoBBvr1WB02mm8fR55CnikRng==}
     engines: {node: '>=12.22.0'}
     dependencies:
       '@ioredis/commands': 1.2.0
@@ -4626,8 +4621,8 @@ packages:
       yargs-parser: 20.2.9
     dev: true
 
-  /yargs/17.6.0:
-    resolution: {integrity: sha512-8H/wTDqlSwoSnScvV2N/JHfLWOKuh5MVla9hqLjK3nsfyy6Y4kDSYSvkU5YCUEPOSnRXfIyx3Sq+B/IWudTo4g==}
+  /yargs/17.6.2:
+    resolution: {integrity: sha512-1/9UrdHjDZc0eOU0HxOHoS78C69UD3JRMvzlJ7S79S2nTaWRA/whGCTV8o9e/N/1Va9YIV7Q4sOxD8VV4pCWOw==}
     engines: {node: '>=12'}
     dependencies:
       cliui: 8.0.1

@@ -77,31 +77,19 @@ module.exports = {
     consumerPath: path.join(__dirname, 'app/queue'),
     sub: {
       cci: {
-        queueName: 'STOCK',
+        topic: 'STOCK',
         group: 'STOCK_cci',
-        lockDuration: 300000,
-        concurrency: 5,
-        removeOnComplete: true,
-        removeOnFail: true,
-        timeout: 300000
+        pullInterval: 1000
       },
       dma: {
-        queueName: 'STOCK',
+        topic: 'STOCK',
         group: 'STOCK_dma',
-        lockDuration: 300000,
-        concurrency: 5,
-        removeOnComplete: true,
-        removeOnFail: true,
-        timeout: 300000
+        pullInterval: 1000
       },
       backTest: {
-        queueName: 'STOCK',
+        topic: 'STOCK',
         group: 'STOCK_backTest',
-        lockDuration: 300000,
-        concurrency: 5,
-        removeOnComplete: true,
-        removeOnFail: true,
-        timeout: 300000
+        pullInterval: 1000
       }
     }
   },
