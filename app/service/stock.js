@@ -90,7 +90,7 @@ module.exports = class Stock {
     ctx.assert(limit, 'limit is required')
     const list = await ctx.service.stock.loadDataFromPrevNDays(code, 2 * limit, ctx)
     ctx.logger.info('loadMdData: ', code, limit, list)
-    const maList = list.slice(limit, 2 * limit)
+    const maList = list.slice(limit + 1, 2 * limit + 1)
       .map((item, index) => {
         const ma = this.ma({
           list: list.slice(index, limit + index),

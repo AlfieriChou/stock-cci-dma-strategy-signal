@@ -35,10 +35,10 @@ module.exports = class Trade {
     const md = await ctx.service.stock.loadMdData({
       code: stock.code,
       limit: stock.cciFirstElementDays,
-      deflate: item => item.ma - item.close
+      deflate: item => Math.abs(item.ma - item.close)
     }, ctx)
     const tp = parseFloat(((close + high + low) / 3).toFixed(4))
-    const cci = (tp - ma) / Math.abs(md) / stock.cciSecondElement
+    const cci = (tp - ma) / md / stock.cciSecondElement
     await ctx.models.CciDmaStock.update({
       currentWorth,
       cci
