@@ -38,7 +38,7 @@ module.exports = class Trade {
       deflate: item => item.ma - item.close
     }, ctx)
     const tp = parseFloat(((close + high + low) / 3).toFixed(4))
-    const cci = (tp - ma) / md / stock.cciSecondElement
+    const cci = (tp - ma) / Math.abs(md) / stock.cciSecondElement
     await ctx.models.CciDmaStock.update({
       currentWorth,
       cci
