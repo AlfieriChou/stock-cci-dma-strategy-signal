@@ -1,5 +1,5 @@
 exports.schedule = {
-  time: '0 20 16/20 * * *'
+  time: '0 20 16,20 * * *'
 }
 
 exports.task = async ctx => {
