@@ -14,10 +14,12 @@ exports.task = async ctx => {
     raw: true
   })
   if (instances.length) {
-    await instances.reduce(async (promise, stock) => {
+    await instances.reduce(async (promise, stock, index) => {
       await promise
       await ctx.sendMsg('cci', 'STOCK', {
         id: stock.id
+      }, {
+        delay: index * 3000
       })
     }, Promise.resolve())
   }
