@@ -14,7 +14,7 @@
   "dependencies": {
     "@galenjs/bullmq": "^1.4.16",
     "@galenjs/factories": "^1.4.0",
-    "@galenjs/framework-next": "1.4.12",
+    "@galenjs/framework-next": "1.4.17",
     "@galenjs/schedule": "^1.4.6",
     "@galenjs/swagger": "^1.4.0",
     "date-fns": "^2.29.3",
