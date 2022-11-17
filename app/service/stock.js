@@ -104,4 +104,30 @@ module.exports = class Stock {
       })
     return this.ma({ list: maList, deflate, limit })
   }
+
+  async loadCciData ({
+    code, limit, coefficient = 0.015
+  }, ctx) {
+    ctx.assert(code, 'code is required')
+    ctx.assert(limit, 'limit is required')
+    const list = await ctx.service.stock.loadDataFromPrevNDays(code, limit, ctx)
+    ctx.logger.info('[loadCciData] list: ', code, limit, list)
+    const typList = list.map(item => {
+      return {
+        ...item,
+        typ: (item.close + item.high + item.low) / 3
+      }
+    })
+    const typMa = this.ma({
+      list: typList, deflate: item => item.typ, limit
+    })
+    const avedenTyp = Math.sqrt(
+      typList.reduce((ret, item) => {
+        return ret + Math.pow(typMa - item.typ, 2)
+      }, 0) / limit,
+      2
+    )
+    const { typ } = typList.pop()
+    return parseFloat(((typ - typMa) / (coefficient * avedenTyp)).toFixed(2))
+  }
 }

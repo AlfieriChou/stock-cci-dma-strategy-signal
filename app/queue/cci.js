@@ -6,39 +6,33 @@ module.exports = class Trade {
       5 * 60
     )
     if (duplicateCount > 1) {
-      ctx.logger.info('[amqp] duplicate message ', msg.id)
+      ctx.logger.info('[queue] duplicate message ', msg.id)
       return
     }
     const { id } = msg.body
     try {
       await this.doTrade(id, ctx)
     } catch (err) {
-      ctx.logger.warn('[amqp] cci stock multi element strategy error: ', msg.id, id, err)
+      ctx.logger.warn('[queue] cci stock multi element strategy error: ', msg.id, id, err)
     }
   }
 
   async doTrade (id, ctx) {
     const stock = await ctx.models.CciDmaStock.findByPk(id)
     if (!stock) {
-      ctx.logger.warn('[amqp] cci stock multi element strategy error: stock not found ', id)
+      ctx.logger.warn('[queue] cci stock multi element strategy error: stock not found ', id)
       return
     }
     const { currentWorth } = await ctx.service.stock.getCurrentInfo(stock.code, ctx)
     const [{
       close, open, high, low
     }] = await ctx.service.stock.loadDataFromPrevNDays(stock.code, 1, ctx)
-    const ma = await ctx.service.stock.loadMaData({
+    const cci = await ctx.service.stock.loadCciData({
       code: stock.code,
       limit: stock.cciFirstElementDays,
-      deflate: item => item.close
+      coefficient: stock.cciSecondElement
     }, ctx)
-    const md = await ctx.service.stock.loadMdData({
-      code: stock.code,
-      limit: stock.cciFirstElementDays,
-      deflate: item => Math.abs(item.ma - item.close)
-    }, ctx)
-    const tp = parseFloat(((close + high + low) / 3).toFixed(4))
-    const cci = (tp - ma) / md / stock.cciSecondElement
+    ctx.logger.info('[queue] cci: ', id, stock.code, cci)
     await ctx.models.CciDmaStock.update({
       currentWorth,
       cci
