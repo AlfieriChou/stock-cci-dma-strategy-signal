@@ -23,17 +23,17 @@ module.exports = class Trade {
       ctx.logger.warn('[amqp] doubleLine stock multi element strategy error: stock not found ', id)
       return
     }
-    const { currentWorth } = await ctx.service.stock.getCurrentInfo(stock.code, ctx)
-    const firstElementValue = await ctx.service.stock.loadMaData({
+    const { currentWorth } = await ctx.stock.getCurrentInfo(stock.code)
+    const firstElementValue = await ctx.stock.loadMaData({
       code: stock.code,
       limit: stock.dmaFirstElementDays,
       deflate: item => item.close
-    }, ctx)
-    const secondElementValue = await ctx.service.stock.loadMaData({
+    })
+    const secondElementValue = await ctx.stock.loadMaData({
       code: stock.code,
       limit: stock.dmaSecondElementDays,
       deflate: item => item.close
-    }, ctx)
+    })
     await ctx.models.CciDmaStock.update({
       currentWorth,
       dmaFirstElementValue: firstElementValue,
@@ -44,7 +44,7 @@ module.exports = class Trade {
     })
     const [{
       close, open, high, low
-    }] = await ctx.service.stock.loadDataFromPrevNDays(stock.code, 1, ctx)
+    }] = await ctx.stock.loadDataFromPrevNDays(stock.code, 1)
     await ctx.models.CciDmaStock.writeDailyReport(id, {
       close,
       open,
