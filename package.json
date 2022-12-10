@@ -1,7 +1,7 @@
 {
-  "name": "fund-dma-strategy-signal",
+  "name": "stock-cci-dma-strategy-signal",
   "version": "0.0.1",
-  "description": "fund double line ma strategy",
+  "description": "stock cci double line ma strategy",
   "scripts": {
     "dev": "NODE_ENV=development nodemon --inspect app.js",
     "lint": "eslint --ext .js ./ --fix",
